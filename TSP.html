@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Traveling Salesman Problem</title>
 </head>
 <body>
-$END$
+<header>
+  <header>
+    <h1 class="project-page-header">Traveling Salesman Problem</h1>
+</header>
+<!-- add section for project description -->
+<section class="project">
+  <section class="project project-section">
+    <h2 class="project-section-title">Problem Description</h2>
+    <p class="project-desc">
+      The <b>Traveling Salesman Problem (TSP)</b> is an <span class="tsp-highlight">NP-complete</span> problem concerned with finding the optimal path to visit all cities in a set while using the shortest distance.
+    </p>
+    <img src="images/tsp.gif" alt="TSP Example" class="project-image project-image">
+    <p class="project-desc">
+      In this example, the salesman must visit all cities (A, B, C,...) and return to the starting city (A). The goal is to find the shortest possible route that visits each city exactly once.
+    </p>
+    <p class="project-desc">
+      Since the problem is <b>NP-complete</b>, it has not been proven whether or not a polynomial-time optimal solution exists. However, this approximation algorithm uses assumptions of geometrical shapes and that there is a path between each city to guarantee a solution no more than <span class="tsp-highlight tsp-bold">1.5 times</span> longer than the optimal solution.
+    </p>
+</section>
+<section class="project project-section">
+  <h2 class="project-section-title">Algorithm Description</h2>
+  <p class="project-desc">
+    The <b>Christofides algorithm</b> starts by creating a graph with the cities represented as vertices and the distances between them as edges. The algorithm then follows these steps:
+  </p>
+  <ol class="project-list" style="text-align: left;">
+    <li>Find a <b>minimum spanning tree (MST)</b> of the graph using Prim&#39;s or Kruskal&#39;s algorithm.</li>
+    <li>Identify all vertices with <b>odd degrees</b> in the MST.</li>
+    <li>Find a <b>minimum weight perfect matching</b> for the odd-degree vertices.</li>
+    <li>Combine the MST and the matching to form an <b>Eulerian circuit</b>.</li>
+    <li>Convert the Eulerian circuit into a <b>Hamiltonian circuit</b> by skipping repeated vertices.</li>
+    </ol>
+  <p class="project-desc">
+    In my implementation, by creating a minimum spanning tree with a root node (like the image shown below), steps 2-5 can be condensed into one step. All that needs to be done is simply perform a <b>depth-first search</b> on the tree, recording the order in which each vertex is visited.
+  </p>
+  <img src="Images/Minimum_spanning_tree.svg.png" alt="TSP Tree" class="project-image project-image">
+</section>
+  <a class="project-link" href="https://github.com/Carter-Lewis/Christofides-TSP-approximation.git" target="_blank">View code on Github</a>
 </body>
 </html>
