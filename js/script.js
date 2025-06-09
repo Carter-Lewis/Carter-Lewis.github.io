@@ -71,7 +71,7 @@ function openProjectsMenu() {
     document.getElementById('close-menu-btn').style.display = 'none';
     document.getElementById('close-projects-btn').style.display = 'block';
     document.querySelectorAll('#projects-menu a').forEach((link, i) => {
-        setTimeout(() => link.classList.add('show-projects-link'), i * 500);
+        setTimeout(() => link.classList.add('show-projects-link'), i * 250);
     })
 }
 
@@ -81,5 +81,23 @@ function closeProjectsMenu() {
     document.getElementById('close-menu-btn').style.display = 'block';
     document.querySelectorAll('#projects-menu a').forEach(link => {
         link.classList.remove('show-projects-link');
+    });
+}
+
+// Toggle TSP menu
+function openTSPMenu() {
+    document.getElementById('tsp-menu').style.height = '100%';
+    document.getElementById('close-menu-btn').style.display = 'none';
+    document.getElementById('close-tsp-btn').style.display = 'block';
+    document.querySelectorAll('#tsp-menu a').forEach((link, i) => {
+        setTimeout(() => link.classList.add('show-tsp-link'), i * 250);
+    })
+}
+function closeTSPMenu() {
+    document.getElementById('tsp-menu').style.height = '0%';
+    document.getElementById('close-tsp-btn').style.display = 'none';
+    document.getElementById('close-menu-btn').style.display = 'block';
+    document.querySelectorAll('#tsp-menu a').forEach(link => {
+        link.classList.remove('show-tsp-link');
     });
 }
