@@ -20,7 +20,7 @@
     </header>
     <div class="home-hero">
         <h1 class="animated-header">
-            Carter Brent Lewis - Personal Website
+            Carter Lewis - Personal Website
         </h1>
     </div>
 </div>
@@ -31,14 +31,64 @@
         </header>
 
         <div class="overlay-content">
-            <a href = "#">about</a>
+            <a href = "#" onclick="openAboutMenu()">about</a>
             <a id="open-projects-btn" href = "#" onclick="openProjectsMenu()">projects</a>
-            <a href = "#">contact</a>
-            <a href = "#">resume</a>
+            <a href = "#" onclick="openContactMenu()">contact</a>
+            <a href = "#" onclick="openResumeMenu()">resume</a>
         </div>
     </div>
 
-    <div id="projects-menu" class="overlay">
+<div id="about-menu" class="overlay">
+    <header>
+        Carter Lewis - About
+        <span onclick="closeAboutMenu()" class="menu-button" id="close-about-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+    <div class="overlay-content">
+        <div class="fade-in-cards">
+            <div class="card fade-in about-card" style="font-size: 1.5rem;">
+                <h3 style="font-size: 2.2rem;">Education</h3>
+                <ul class="about-bullets">
+                    <li>I am currently a Computer Science student at Baylor University, where I plan to graduate in May 2027.</li>
+                    <li>I have had coursework in data structures, algorithms, software design principles, databases, statistics, and discrete mathematics.</li>
+                </ul>
+            </div>
+            <div class="card fade-in about-card" style="font-size: 1.5rem;">
+                <h3 style="font-size: 2.2rem;">Career Interests</h3>
+                <ul class="about-bullets">
+                    <li>I have a particular interest in backend software development and am intrigued in exploring the applications of artificial intelligence in other areas - particularly automation and finance</li>
+                    <li>Long term, I hope to hold a management/leadership position within a software engineering team or pursue a career in technology consulting</li>
+                </ul>
+            </div>
+            <div class="card fade-in about-card" style="font-size: 1.5rem;">
+                <h3 style="font-size: 2.2rem;">Baylor University Innovation Fellows</h3>
+                <ul class="about-bullets">
+                    <li>The Baylor UIF program is geared towards teaching students how to make change on a college campus through innovation and entrepreneurship.</li>
+                    <li>I am honored to be a part of the first ever cohort at Baylor University, serving the roles of Director of Recruitment & Communications and Software Engineer</li>
+                    <li>Our cohort has been working since Fall 2024 on a project (Leave No Trace) to reduce the amount of food waste produced at Baylor University Dining Halls.</li>
+                </ul>
+            </div>
+            <div class="card fade-in about-card" style="font-size: 1.5rem;">
+                <h3 style="font-size: 2.2rem;">Association of Computing Machinery</h3>
+                <ul class="about-bullets">
+                    <li>I will be serving as the President of Baylor's Association of Computing Machinery in the 2025-2026 academic year.</li>
+                </ul>
+            </div>
+            <div class="card fade-in about-card" style="font-size: 1.5rem;">
+                <h3 style="font-size: 2.2rem;">Highland Baptist Church</h3>
+                <ul class="about-bullets">
+                    <li>I will also be serving through Highland Baptist Church in Waco, TX to lead a College small group</li>
+                </ul>
+            </div>
+            <div class="card fade-in about-card" style="font-size: 1.5rem;">
+                <h3 style="font-size: 2.2rem;">Personal Interests</h3>
+                <ul class="about-bullets">
+                    <li>Besides coding, I enjoy playing the piano, lifting weights, cooking, and reading (my favorite author is C.S Lewis)</li>
+                </ul>
+            </div>
+    </div>
+</div>
+</div>
+<div id="projects-menu" class="overlay">
         <header>
             Carter Lewis - Projects
             <span onclick="closeProjectsMenu()" class="menu-button" id="close-projects-btn"><i class="fa-solid fa-arrow-left"></i></span>
@@ -46,18 +96,52 @@
 
         <div class="overlay-content">
             <a href = "#" onclick="openTSPMenu()">TSP Visualization</a>
-            <a href = "#">Sorting Algorithm Visualization</a>
-            <a href = "#">Skiplist visualization</a>
-            <a href = "#">Text Compression Tool</a>
-            <a href = "#">Chromatic Number of a graph</a>
-            <a href = "#">Baylor University Innovation Fellows Website</a>
+            <a href = "#" onclick="openSortingAlgorithmsMenu()">Sorting Algorithm Visualization</a>
+            <a href = "#" onclick="openSkiplistMenu()">Skiplist visualization</a>
+            <a href = "#" onclick="openHuffmanMenu()">Text Compression Tool</a>
+            <a href = "#" onclick="openChromaticNumberMenu()">Chromatic Number of a graph</a>
+            <a href = "#" onclick="openUIFMenu()">Baylor University Innovation Fellows Website</a>
         </div>
     </div>
+<div id="contact-menu" class="overlay">
+    <header>
+        Carter Lewis - Contact
+        <span onclick="closeContactMenu()" class="menu-button" id="close-contact-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+
+    <div class="overlay-content">
+        <div class="contact-card">
+            <h2>Contact Information</h2>
+            <p>Email: Carter_Lewis1@baylor.edu</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/carter-lewis-b31287292" target="_blank" style="transition: none; font-size: 20px; text-decoration: underline">LinkedIn</a></p>
+            <p style="transition: none;">Phone: (806)781-0953</p>
+        </div>
+</div>
+</div>
+<div id="resume-menu" class="overlay">
+    <header>
+        Carter Lewis - Resume
+        <span onclick="closeResumeMenu()" class="menu-button" id="close-resume-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+<div class="overlay-content" style="margin-top: 0; position: absolute; padding-top: 40px;">
+        <div class="resume-card" style="margin-top: 20px;">
+            <h2 style="color: var(--cream);">Resume</h2>
+            <iframe src="Images/Carter_Lewis_tech_resume_Jun10-2025.pdf" style="width:100%; height:800px; border:none;" title="Resume PDF"></iframe>
+            <p style="color: var(--cream);">My resume is embedded above. You can also <a href="Images/Carter_Lewis_tech_resume_Jun10-2025.pdf" target="_blank" style="color: var(--cream); text-decoration: underline;">download it here</a>:</p>
+        </div>
+</div>
+</div>
+
+
+
+
+
+
 
 <div id="tsp-menu" class="overlay project">
     <header>
         TSP Visualization
-        <span onclick="closeTSPMenu()" class="menu-button" id="close-tsp-btn"><i class="fa-solid fa-arrow-left"></i></span>
+        <span onclick="closeTSPMenu()" class="menu-button" id="close-tsp-btn"><i class="fa-solid fa-xmark"></i></span>
     </header>
 
     <div class="project-page-card">
@@ -101,10 +185,171 @@
 
         </p>
         <p>
-            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/Christofides-TSP-approximation" target="_blank">Christofides-TSP-approximation</a>.
+            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/Christofides-TSP-approximation" target="_blank">Christofides-TSP-approximation</a>
+        </p>
+    </div>
+    <div class="project-page-card">
+        <h2>Project Demonstration</h2>
+        <video controls style="width: 400px;">
+            <source src="Images/christofides.mov" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<div id="sorting-algorithms" class="overlay project">
+    <header>
+        Sorting Algorithms Visualization
+        <span onclick="closeSortingAlgorithmsMenu()" class="menu-button" id="close-sorting-algorithms-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+
+    <div class="project-page-card">
+        <h2>Problem Description</h2>
+        <p>
+            This is a simple project using SDL2 to visualize various sorting algorithms. The project allows users to see how different sorting algorithms work by visualizing the process of sorting a list of numbers.
+        </p>
+        <p>The following sorting algorithms are implemented with visualization in this project:</p>
+        <ul>
+            <li>Bubble Sort</li>
+            <li>Selection Sort</li>
+            <li>Insertion Sort</li>
+            <li>Merge Sort</li>
+            <li>Quick Sort</li>
+        </ul>
+    </div>
+
+    <div class="project-page-card">
+        <h2>Implementation</h2>
+        <p>
+            The sorting algorithms visualization project provides an interactive way to visualize how different sorting algorithms work. Users can select an algorithm and see how it sorts a list of numbers step by step.
+        </p>
+        <p>
+            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/sorting-algorithm-visualization-sdl">sorting-algorithm-visualization-sdl</a>
+        </p>
+    </div>
+    <div class="project-page-card">
+        <h2>Project Demonstration</h2>
+        <video controls style="width: 400px;">
+            <source src="Images/sorting.mov" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<div id="skiplist" class="overlay project">
+    <header>
+        Skiplist Visualization
+        <span onclick="closeSkiplistMenu()" class="menu-button" id="close-skiplist-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+
+    <div class="project-page-card">
+        <h2>Problem Description</h2>
+        <p>
+            A skiplist is a data structure that allows for fast search, insertion, and deletion operations. It consists of multiple layers of linked lists, where each layer acts as an "express lane" for the layer below it.
+        </p>
+        <p>
+            The skiplist is designed to maintain a balance between the number of elements in each layer and the height of the skiplist, ensuring efficient operations.
+        </p>
+        <p>
+            The skiplist data structure performs searches, insertions, and deletions in O(log n) time on average.
+        </p>
+    </div>
+
+    <div class="project-page-card">
+        <h2>Implementation</h2>
+        <p>
+            The skiplist visualization project provides an interactive way to visualize how a skiplist works. Users can insert and delete elements from the skiplist and see how the structure changes in real-time.
+        </p>
+        <p>
+            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/skiplist-visualization-sdl">skiplist-visualization-sdl</a>
+        </p>
+    </div>
+    <div class="project-page-card">
+        <h2>Project Demonstration</h2>
+        <video controls style="width: 400px;">
+            <source src="Images/skiplist-demo.mov" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<div id="huffman" class="overlay project">
+    <header>
+        Text Compression Tool
+        <span onclick="closeHuffmanMenu()" class="menu-button" id="close-text-compression-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+
+    <div class="project-page-card">
+        <h2>Problem Description</h2>
+        <p>
+            The text compression tool is designed to compress and decompress text files using the huffman encoding algorithm. It aims to reduce the size of text files while preserving the original content.
+        </p>
+        <p>
+            The huffman encoding algorithm is a greedy algorithm that builds a binary tree based on the frequency of characters in the text. It assigns shorter codes to more frequent characters and longer codes to less frequent characters, resulting in a compressed representation of the text.
+        </p>
+    </div>
+
+    <div class="project-page-card">
+        <h2>Implementation</h2>
+        <p>
+            The text compression tool provides a user-friendly interface for compressing and decompressing text files. Users can select a file, choose a compression algorithm, and see the compressed output.
+        </p>
+        <p>
+            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/Huffman-encoding" target="_blank">Huffman-encoding</a>
         </p>
     </div>
 </div>
+
+<div id="chromatic-number" class="overlay project">
+    <header>
+        Chromatic Number of a Graph
+        <span onclick="closeChromaticNumberMenu()" class="menu-button" id="close-chromatic-number-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+
+    <div class="project-page-card">
+        <h2>Problem Description</h2>
+        <p>
+            The chromatic number of a graph is the minimum number of colors needed to color the vertices of the graph such that no two adjacent vertices share the same color. It is a fundamental concept in graph theory and has applications in scheduling, register allocation, and frequency assignment.
+        </p>
+        <p>
+            An example of such coloring of a graph is shown below, where the vertices are colored in such a way that no two adjacent vertices share the same color.
+        </p>
+        <img src="Images/chromatic-number.svg.png" alt="Chromatic Number of a Graph" style="width: 200px;"/>
+    </div>
+
+    <div class="project-page-card">
+        <h2>Implementation</h2>
+        <p>
+            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/Chromatic-number" target="_blank">Chromatic Number</a>
+        </p>
+    </div>
+</div>
+
+<div id="uif-website" class="overlay project">
+    <header>
+        Baylor University Innovation Fellows Website
+        <span onclick="closeUIFMenu()" class="menu-button" id="close-baylor-uif-btn"><i class="fa-solid fa-xmark"></i></span>
+    </header>
+
+    <div class="project-page-card">
+        <h2>Problem Description</h2>
+        <p>
+            The Baylor University Innovation Fellows (UIF) program is a student-led initiative that aims to foster innovation and entrepreneurship within the university community. The program provides students with the opportunity to develop their leadership skills, collaborate on projects, and create a positive impact on campus.
+        </p>
+        <p>
+            I have the honor of being part of the inaugural cohort of Baylor UIF, which I have created a website for. The website serves as a platform to showcase the program's mission, goals, and achievements, as well as to provide information about the application process for prospective fellows.
+        </p>
+    </div>
+
+    <div class="project-page-card">
+        <h2>Implementation</h2>
+        <p>
+            The Baylor UIF website is built using HTML, CSS, and JavaScript. It is currently a work-in-progress and not available to the public yet. Feel free to view the code of the current state of the project.
+        </p>
+        <p>
+            The code is available on GitHub: <a href="https://github.com/Carter-Lewis/BaylorUIF-website" target="_blank">BaylorUIF-website</a>
+        </p>
+    </div>
+</div>
+
+
 
 
 <div id="container">
