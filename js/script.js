@@ -3,7 +3,7 @@ const links = document.querySelectorAll('.overlay-content a');
 const menuButtons = document.querySelectorAll('.menu-button');
 
 // Update cursor position
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', e => {
     cursorShape.style.left = e.clientX + 'px';
     cursorShape.style.top = e.clientY + 'px';
 });
