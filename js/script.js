@@ -170,6 +170,17 @@ function closeChromaticNumberMenu() {
     });
 }
 
+function openBookClubMenu() {
+    document.getElementById('book-club').style.height = '100%';
+    document.getElementById('close-menu-btn').style.display = 'none';
+    document.getElementById('close-book-club-btn').style.display = 'block';
+}
+function closeBookClubMenu() {
+    document.getElementById('book-club').style.height = '0%';
+    document.getElementById('close-book-club-btn').style.display = 'none';
+    document.getElementById('close-menu-btn').style.display = 'block';
+}
+
 function openUIFMenu() {
     document.getElementById('uif-website').style.height = '100%';
     document.getElementById('close-menu-btn').style.display = 'none';

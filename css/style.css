@@ -4,19 +4,33 @@
     --burntsienna: #c97c5d;
     --darkmossgreen: #515b3a;
     --cadetgray: #90a9b7;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: linear-gradient(-45deg, var(--oxfordblue) 0%, var(--cadetgray) 35%, var(--burntsienna) 70%, var(--cream) 100%);
     background-size: 400% 400%;
     animation: gradient 30s ease infinite;
     color: #22304a;
-    font-family: 'roboto-mono', monospace;
-    text-transform: uppercase;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
     padding: 0;
     cursor: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #cursor-shape {
@@ -33,24 +47,27 @@ body {
 }
 
 header, .project-page-header {
-    background: var(--oxfordblue);
+    background: linear-gradient(135deg, var(--oxfordblue) 0%, rgba(0, 31, 63, 0.95) 100%);
     color: var(--cream);
-    padding: 1.5rem 0;
+    padding: 1.25rem 2rem;
     text-align: center;
-    letter-spacing: 1px;
-    font-family: 'roboto-mono', monospace;
-    font-weight: 400;
-    font-size: 2rem;
+    letter-spacing: 0.5px;
+    font-family: 'Ancizar Serif', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(240, 243, 189, 0.1);
+    position: relative;
 }
 
 a {
     color: var(--cream);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all var(--transition-fast);
 }
 
 a:hover {
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 section.project {
@@ -77,14 +94,45 @@ video {
 .home-hero {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
+    text-align: center;
 }
 
 .animated-header {
     opacity: 0;
-    transform: translateY(-40px) scale(0.95);
-    animation: fadeInDown 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+    font-family: 'Ancizar Serif', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--oxfordblue);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.5px;
+    margin: 0;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--darkmossgreen);
+    margin-top: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    opacity: 0;
+    animation: fadeInDown 1s ease 1s forwards, bounce 2s ease-in-out 2s infinite;
+    color: var(--oxfordblue);
+    font-size: 1.5rem;
 }
 
 /* Full Screen Menu */
@@ -125,42 +173,55 @@ video {
 
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 20%;
     width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    padding: 2rem;
+    gap: 0.5rem;
 }
 
 .overlay a {
-    padding: 8px;
+    padding: 1rem 2rem;
     width: fit-content;
     text-decoration: none;
-    font-size: 36px;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
     color: var(--cream);
     display: inline-block;
-    opacity: 1;
-    display: inline-block;
-    transition: transform 0.3s ease;
+    transition: all var(--transition-smooth);
+    border-radius: var(--radius-sm);
+    font-family: 'Ancizar Serif', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: lowercase;
 }
 
 .fade-in-cards {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
     gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    background: var(--cream);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    padding: 1.5rem;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow var(--transition-fast);
+    background: linear-gradient(145deg, var(--cream) 0%, rgba(240, 243, 189, 0.95) 100%);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
 }
 
 .card.visible {
@@ -168,23 +229,57 @@ video {
     transform: translateY(0);
 }
 
+.card.visible:hover {
+    transform: translateY(-4px);
+}
+
 .card h3 {
     color: var(--burntsienna);
+    font-family: 'Ancizar Serif', Georgia, serif;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(201, 124, 93, 0.2);
 }
+
 .card li {
-    color: var(--darkmossgreen)
+    color: var(--darkmossgreen);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
 }
+
+.card li:last-child {
+    margin-bottom: 0;
+}
+
 .about-card {
+    font-size: 1rem;
+}
+
+.about-card h3 {
     font-size: 1.5rem;
 }
-.about-card h3 {
-    font-size: 2.2rem;
-}
+
 .about-bullets {
-    list-style: disc inside;
-    margin-top: 1rem;
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.about-bullets li {
+    position: relative;
     padding-left: 1.5rem;
 }
+
+.about-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--burntsienna);
+    font-weight: bold;
+}
+
 .about-bullets li.visible {
     opacity: 1;
     transform: translateY(0);
@@ -234,13 +329,10 @@ video {
 }
 
 .overlay a:hover, .overlay a:focus {
-    opacity: 0.7;
     cursor: none;
-    border-radius: 40%;
-    background-color: rgba(249, 237, 204, 0.12);
-    /*font-weight: bold;*/
-    scale: 1.2;
-    transition: background-color 0.2s, scale 0.2s;
+    background-color: rgba(240, 243, 189, 0.15);
+    transform: scale(1.05);
+    color: var(--cream);
 }
 
 .overlay-content a:hover ~ #cursor-shape {
@@ -292,33 +384,84 @@ video {
 }
 
 .project-page-card {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(58, 110, 165, 0.08);
-    margin-bottom: 1.5rem;
+    background: linear-gradient(145deg, var(--cream) 0%, rgba(240, 243, 189, 0.95) 100%);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    margin: 0 auto 1.5rem;
+    max-width: 900px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.project-page-card h2 {
+    font-family: 'Ancizar Serif', Georgia, serif;
+    color: var(--oxfordblue);
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(0, 31, 63, 0.1);
+}
+
+.project-page-card p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.project-page-card p:last-child {
+    margin-bottom: 0;
+}
+
+.project-page-card ol,
+.project-page-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.project-page-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
 .project {
     width: 100%;
     height: 0%;
     overflow-y: auto;
+    padding: 0 1rem;
+    z-index: 3;
 }
+
 .project-page-card img {
     display: block;
-    margin: auto;
+    margin: 1.5rem auto;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    max-width: 100%;
+    height: auto;
 }
+
+.project-page-card video {
+    display: block;
+    margin: 1rem auto;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    max-width: 100%;
+    width: min(500px, 100%);
+}
+
 .project a {
     color: var(--burntsienna);
     font-weight: 600;
-    font-size: 1.2rem;
-    padding-left: 40px;
-    text-decoration: underline;
+    font-size: 1rem;
+    padding: 0;
+    text-decoration: none;
+    border-bottom: 2px solid var(--burntsienna);
+    transition: all var(--transition-fast);
 }
 
 .project a:hover {
     color: var(--darkmossgreen);
-    text-decoration: none;
+    border-bottom-color: var(--darkmossgreen);
 }
 
 .project a:hover ~ #cursor-shape {
@@ -357,13 +500,114 @@ canvas {
 @keyframes fadeInDown {
     to {
         opacity: 1;
-        transform: translateY(20px) scale(1);
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeInRight {
     to {
         opacity: 1;
-        transform: translateX(40px) scale(1);
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Contact Card Styles */
+.contact-card {
+    background: linear-gradient(145deg, var(--cream) 0%, rgba(240, 243, 189, 0.95) 100%);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-card h2 {
+    font-family: 'Ancizar Serif', Georgia, serif;
+    color: var(--oxfordblue);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.contact-card p {
+    color: var(--darkmossgreen);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-card a {
+    color: var(--burntsienna);
+    font-weight: 600;
+    border-bottom: 2px solid var(--burntsienna);
+}
+
+.contact-card a:hover {
+    color: var(--darkmossgreen);
+    border-bottom-color: var(--darkmossgreen);
+}
+
+/* Resume Card Styles */
+.resume-card {
+    background: rgba(0, 31, 63, 0.3);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(240, 243, 189, 0.1);
+}
+
+.resume-card h2 {
+    font-family: 'Ancizar Serif', Georgia, serif;
+    margin-top: 0;
+}
+
+.resume-card iframe {
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive Improvements */
+@media screen and (max-width: 768px) {
+    header, .project-page-header {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+    .menu-button {
+        font-size: 28px;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .fade-in-cards {
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .project-page-card {
+        padding: 1.5rem;
+        margin: 0 0.5rem 1rem;
+    }
+    
+    .overlay-content {
+        top: 15%;
     }
 }
