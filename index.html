@@ -146,6 +146,12 @@
                 <p>Website for Baylor's inaugural University Innovation Fellows cohort.</p>
                 <span class="project-cta">View project <i class="fa-solid fa-arrow-right"></i></span>
             </article>
+            <article class="project-card reveal-card" onclick="openProject('fps')">
+                <span class="project-tag">Rust · Godot · Networking</span>
+                <h3>Multiplayer FPS</h3>
+                <p>Real-time multiplayer shooter with a custom binary protocol, dual WebTransport/TCP+UDP transport, and authoritative Rust server — playable from browser or desktop.</p>
+                <span class="project-cta">View project <i class="fa-solid fa-arrow-right"></i></span>
+            </article>
         </div>
     </div>
 </section>
@@ -298,6 +304,33 @@
             <h3>About</h3>
             <p>Website for Baylor University's inaugural University Innovation Fellows cohort — a student-led initiative fostering innovation and entrepreneurship on campus. Showcases the program's mission and provides info for prospective fellows.</p>
             <a href="https://github.com/Carter-Lewis/BaylorUIF-website" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="project-detail" id="detail-fps">
+    <div class="detail-header">
+        <h2>Multiplayer FPS</h2>
+        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="detail-body">
+        <div class="detail-section">
+            <h3>About</h3>
+            <p>A real-time multiplayer first-person shooter built as a networking course final project. Players connect from a native desktop client or a browser and fight in a shared 3D arena. All game logic runs on an authoritative Rust server; clients send input and receive world-state updates at ~60 Hz.</p>
+            <a href="https://github.com/Carter-Lewis/fps_network_protocol" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="detail-section">
+            <h3>Stack</h3>
+            <p><strong>Server:</strong> Rust with Tokio async runtime — handles WebTransport (QUIC/HTTP3) and legacy TCP+UDP simultaneously on the same player state.<br>
+            <strong>Client:</strong> Godot 4 (GDScript), exported to both native desktop and browser (HTML5). Browser clients use a hand-written JavaScript WebTransport bridge called via <code>JavaScriptBridge.eval()</code>.<br>
+            <strong>Protocol:</strong> Shared Rust crate with nine hand-serialized binary message types (big-endian, no external serialization library). Deployed on AWS EC2 with Let's Encrypt TLS.</p>
+        </div>
+        <div class="detail-section">
+            <h3>Key Engineering</h3>
+            <p><strong>Dual-transport architecture</strong> — the same server accepts WebTransport (browser) and TCP+UDP (desktop) clients in the same session. The transport layer is abstracted so game logic is transport-agnostic.<br>
+            <strong>Authoritative hit detection</strong> — the server validates melee hits by computing 3D Euclidean distance; clients cannot self-report damage.<br>
+            <strong>Position reconciliation</strong> — the client tracks per-frame drift between its locally-predicted position and the server-authoritative position, exportable as CSV and viewable as a live in-game overlay (F3).<br>
+            <strong>Binary protocol</strong> — <code>PlayerInput</code> is 20 bytes; <code>WorldState</code> is 6 + 26 bytes per player. All nine message types implement <code>serialize()</code> / <code>deserialize()</code> with round-trip tests.</p>
         </div>
     </div>
 </div>
