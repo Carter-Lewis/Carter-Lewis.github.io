@@ -152,6 +152,12 @@
                 <p>Real-time multiplayer shooter with a custom binary protocol, dual WebTransport/TCP+UDP transport, and authoritative Rust server — playable from browser or desktop.</p>
                 <span class="project-cta">View project <i class="fa-solid fa-arrow-right"></i></span>
             </article>
+            <article class="project-card reveal-card" onclick="openProject('cloudcost')">
+                <span class="project-tag">Python · Django · AWS</span>
+                <h3>CloudCost</h3>
+                <p>Multi-account AWS cost tracking dashboard with a REST API, CLI, and Celery-powered scheduled polling from Cost Explorer.</p>
+                <span class="project-cta">View project <i class="fa-solid fa-arrow-right"></i></span>
+            </article>
         </div>
     </div>
 </section>
@@ -187,150 +193,205 @@
 <!-- Project detail overlays -->
 
 <div class="project-detail" id="detail-tsp">
-    <div class="detail-header">
-        <h2>TSP Visualization</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>Problem</h3>
-            <p>The Traveling Salesman Problem asks for the shortest route visiting all cities exactly once and returning to the start. It's NP-hard — no polynomial-time algorithm is known for all instances. The Christofides algorithm produces solutions within 1.5× the optimum for metric instances.</p>
-            <img src="Images/tsp.gif" alt="TSP algorithm paths">
-        </div>
-        <div class="detail-section">
-            <h3>Implementation</h3>
-            <p>My modified approach builds a minimum spanning tree (MST), then performs a depth-first search recording visit order. This reduces time complexity from O(n³) to O(n² log n) compared to the full Christofides algorithm.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">C++ · Algorithms</span>
+            <h2>TSP Visualization</h2>
             <a href="https://github.com/Carter-Lewis/Christofides-TSP-approximation" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
         </div>
-        <div class="detail-section">
-            <h3>Demo</h3>
-            <video controls>
-                <source src="Images/christofides.mov" type="video/mp4">
-            </video>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>Problem</h3>
+                <p>The Traveling Salesman Problem asks for the shortest route visiting all cities exactly once and returning to the start. It's NP-hard — no polynomial-time algorithm is known for all instances. The Christofides algorithm produces solutions within 1.5× the optimum for metric instances.</p>
+                <img src="Images/tsp.gif" alt="TSP algorithm paths">
+            </div>
+            <div class="detail-section">
+                <h3>Implementation</h3>
+                <p>My modified approach builds a minimum spanning tree (MST), then performs a depth-first search recording visit order. This reduces time complexity from O(n³) to O(n² log n) compared to the full Christofides algorithm.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Demo</h3>
+                <video controls>
+                    <source src="Images/christofides.mov" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-sorting">
-    <div class="detail-header">
-        <h2>Sorting Visualizer</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>Real-time visualization of sorting algorithms built with C++ and SDL2. Watch Bubble, Selection, Insertion, Merge, and Quick Sort work step by step on a live array.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">C++ · SDL2</span>
+            <h2>Sorting Visualizer</h2>
             <a href="https://github.com/Carter-Lewis/sorting-algorithm-visualization-sdl" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
         </div>
-        <div class="detail-section">
-            <h3>Demo</h3>
-            <video controls>
-                <source src="Images/sorting.mov" type="video/mp4">
-            </video>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>Real-time visualization of sorting algorithms built with C++ and SDL2. Watch Bubble, Selection, Insertion, Merge, and Quick Sort work step by step on a live array.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Demo</h3>
+                <video controls>
+                    <source src="Images/sorting.mov" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-skiplist">
-    <div class="detail-header">
-        <h2>Skiplist Visualization</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>Interactive visualization of a skip list — a probabilistic data structure using layered linked lists as "express lanes" to achieve O(log n) average time for search, insert, and delete. Built with C++ and SDL2.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">C++ · SDL2</span>
+            <h2>Skiplist Visualization</h2>
             <a href="https://github.com/Carter-Lewis/skiplist-visualization-sdl" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
         </div>
-        <div class="detail-section">
-            <h3>Demo</h3>
-            <video controls>
-                <source src="Images/skiplist-demo.mov" type="video/mp4">
-            </video>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>Interactive visualization of a skip list — a probabilistic data structure using layered linked lists as "express lanes" to achieve O(log n) average time for search, insert, and delete. Built with C++ and SDL2.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Demo</h3>
+                <video controls>
+                    <source src="Images/skiplist-demo.mov" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-huffman">
-    <div class="detail-header">
-        <h2>Text Compression Tool</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>Compress and decompress text files using Huffman encoding — a greedy algorithm that builds a binary tree from character frequencies, assigning shorter codes to common characters for compact output.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">C++ · Algorithms</span>
+            <h2>Text Compression Tool</h2>
             <a href="https://github.com/Carter-Lewis/Huffman-encoding" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>Compress and decompress text files using Huffman encoding — a greedy algorithm that builds a binary tree from character frequencies, assigning shorter codes to common characters for compact output.</p>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-chromatic">
-    <div class="detail-header">
-        <h2>Chromatic Number</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>Computes the chromatic number of a graph — the minimum colors needed so no two adjacent vertices share a color. Applications include scheduling, register allocation, and frequency assignment.</p>
-            <img src="Images/chromatic-number.svg.png" alt="Graph coloring example" style="max-width: 200px;">
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">Python · Graph Theory</span>
+            <h2>Chromatic Number</h2>
             <a href="https://github.com/Carter-Lewis/Chromatic-number" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>Computes the chromatic number of a graph — the minimum colors needed so no two adjacent vertices share a color. Applications include scheduling, register allocation, and frequency assignment.</p>
+                <img src="Images/chromatic-number.svg.png" alt="Graph coloring example" style="max-width: 200px;">
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-bookclub">
-    <div class="detail-header">
-        <h2>Book Club Web App</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>A web platform for book clubs built with Java and Spring Boot for Baylor's Software Engineering II course. Features user authentication, book management, meeting scheduling, and discussion forums.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">Java · Spring Boot</span>
+            <h2>Book Club Web App</h2>
             <a href="https://github.com/Baylor-SEII-Projects-Fall-2025/f25-book-club-team-4" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>A web platform for book clubs built with Java and Spring Boot for Baylor's Software Engineering II course. Features user authentication, book management, meeting scheduling, and discussion forums.</p>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-uif">
-    <div class="detail-header">
-        <h2>Baylor UIF Website</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>Website for Baylor University's inaugural University Innovation Fellows cohort — a student-led initiative fostering innovation and entrepreneurship on campus. Showcases the program's mission and provides info for prospective fellows.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">HTML · CSS · JS</span>
+            <h2>Baylor UIF Website</h2>
             <a href="https://github.com/Carter-Lewis/BaylorUIF-website" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>Website for Baylor University's inaugural University Innovation Fellows cohort — a student-led initiative fostering innovation and entrepreneurship on campus. Showcases the program's mission and provides info for prospective fellows.</p>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="project-detail" id="detail-fps">
-    <div class="detail-header">
-        <h2>Multiplayer FPS</h2>
-        <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
     <div class="detail-body">
-        <div class="detail-section">
-            <h3>About</h3>
-            <p>A real-time multiplayer first-person shooter built as a networking course final project. Players connect from a native desktop client or a browser and fight in a shared 3D arena. All game logic runs on an authoritative Rust server; clients send input and receive world-state updates at ~60 Hz.</p>
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">Rust · Godot · Networking</span>
+            <h2>Multiplayer FPS</h2>
             <a href="https://github.com/Carter-Lewis/fps_network_protocol" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
         </div>
-        <div class="detail-section">
-            <h3>Stack</h3>
-            <p><strong>Server:</strong> Rust with Tokio async runtime — handles WebTransport (QUIC/HTTP3) and legacy TCP+UDP simultaneously on the same player state.<br>
-            <strong>Client:</strong> Godot 4 (GDScript), exported to both native desktop and browser (HTML5). Browser clients use a hand-written JavaScript WebTransport bridge called via <code>JavaScriptBridge.eval()</code>.<br>
-            <strong>Protocol:</strong> Shared Rust crate with nine hand-serialized binary message types (big-endian, no external serialization library). Deployed on AWS EC2 with Let's Encrypt TLS.</p>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>A real-time multiplayer first-person shooter built as a networking course final project. Players connect from a native desktop client or a browser and fight in a shared 3D arena. All game logic runs on an authoritative Rust server; clients send input and receive world-state updates at ~60 Hz.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Stack</h3>
+                <p><strong>Server:</strong> Rust with Tokio async runtime — handles WebTransport (QUIC/HTTP3) and legacy TCP+UDP simultaneously on the same player state.<br>
+                <strong>Client:</strong> Godot 4 (GDScript), exported to both native desktop and browser (HTML5). Browser clients use a hand-written JavaScript WebTransport bridge called via <code>JavaScriptBridge.eval()</code>.<br>
+                <strong>Protocol:</strong> Shared Rust crate with nine hand-serialized binary message types (big-endian, no external serialization library). Deployed on AWS EC2 with Let's Encrypt TLS.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Key Engineering</h3>
+                <p><strong>Dual-transport architecture</strong> — the same server accepts WebTransport (browser) and TCP+UDP (desktop) clients in the same session. The transport layer is abstracted so game logic is transport-agnostic.<br>
+                <strong>Authoritative hit detection</strong> — the server validates melee hits by computing 3D Euclidean distance; clients cannot self-report damage.<br>
+                <strong>Position reconciliation</strong> — the client tracks per-frame drift between its locally-predicted position and the server-authoritative position, exportable as CSV and viewable as a live in-game overlay (F3).<br>
+                <strong>Binary protocol</strong> — <code>PlayerInput</code> is 20 bytes; <code>WorldState</code> is 6 + 26 bytes per player. All nine message types implement <code>serialize()</code> / <code>deserialize()</code> with round-trip tests.</p>
+            </div>
         </div>
-        <div class="detail-section">
-            <h3>Key Engineering</h3>
-            <p><strong>Dual-transport architecture</strong> — the same server accepts WebTransport (browser) and TCP+UDP (desktop) clients in the same session. The transport layer is abstracted so game logic is transport-agnostic.<br>
-            <strong>Authoritative hit detection</strong> — the server validates melee hits by computing 3D Euclidean distance; clients cannot self-report damage.<br>
-            <strong>Position reconciliation</strong> — the client tracks per-frame drift between its locally-predicted position and the server-authoritative position, exportable as CSV and viewable as a live in-game overlay (F3).<br>
-            <strong>Binary protocol</strong> — <code>PlayerInput</code> is 20 bytes; <code>WorldState</code> is 6 + 26 bytes per player. All nine message types implement <code>serialize()</code> / <code>deserialize()</code> with round-trip tests.</p>
+    </div>
+</div>
+
+<div class="project-detail" id="detail-cloudcost">
+    <div class="detail-body">
+        <div class="detail-meta">
+            <button class="detail-close" onclick="closeProject()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="project-tag">Python · Django · AWS</span>
+            <h2>CloudCost</h2>
+            <a href="https://github.com/Carter-Lewis/cloud_cost_optimization" target="_blank" class="detail-github">View on GitHub <i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>About</h3>
+                <p>CloudCost tracks and analyzes AWS spend across multiple accounts from a single dashboard. Connect any number of AWS accounts, let Celery Beat poll Cost Explorer on a daily schedule, then explore breakdowns by service, region, and date range — from the web UI, the REST API, or the <code>cloudcost</code> CLI.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Stack</h3>
+                <p><strong>Backend:</strong> Django + Django REST Framework with JWT authentication. PostgreSQL stores accounts and cost data; Redis backs the Celery task queue.<br>
+                <strong>Workers:</strong> Celery Beat triggers daily polls of the AWS Cost Explorer API; credentials are encrypted at rest with Fernet.<br>
+                <strong>CLI:</strong> <code>cloudcost</code> command installed via <code>uv tool</code> — supports <code>init</code>, <code>login</code>, <code>accounts add/list</code>, and <code>costs summary</code> with custom date ranges.<br>
+                <strong>Deployment:</strong> Docker Compose bundles the web server, worker, beat scheduler, Postgres, and Redis into a single <code>docker compose up</code>.</p>
+            </div>
+            <div class="detail-section">
+                <h3>Key Features</h3>
+                <p><strong>Multi-account support</strong> — add as many AWS accounts as needed; each uses a scoped IAM user with read-only Cost Explorer permissions.<br>
+                <strong>Encrypted credential storage</strong> — access keys are Fernet-encrypted before being written to the database.<br>
+                <strong>Flexible querying</strong> — filter cost summaries by account, service, region, or arbitrary date ranges via the API or CLI.<br>
+                <strong>Scheduled polling</strong> — Celery Beat runs a daily job at 02:00 UTC; one-off polls are available via the CLI or a Django management command.</p>
+            </div>
         </div>
     </div>
 </div>
